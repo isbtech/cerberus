@@ -1,0 +1,8 @@
+  ' --- Win32 Disk Drive
+        searcher = New ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive where Index = " + diskIndex.ToString)
+
+        Dim deviceName As String = ""
+        For Each wmi_HD As ManagementObject In searcher.[Get]()
+            deviceName = wmi_HD("Name")
+            Exit For
+        Next
